@@ -199,11 +199,11 @@ mallorca <- get_stamenmap(
 ggmap(mallorca) +
   geom_point(data = mallorca_bike_day7,
              aes(x = lon, y = lat),
-             size = 1, color = "red") +
+             size = 2, color = "blue") +
   geom_path(data = mallorca_bike_day7,
             aes(x = lon, y = lat, color = ele),
             size = 0.5 ) +
-  scale_color_viridis_c(option = "magma") +
+  scale_color_viridis_c(option = "cyan") +
   theme_map() +
   theme(legend.background = element_blank()) +
   labs(title = "Bike Ride Through Mallorca",
@@ -213,7 +213,7 @@ ggmap(mallorca) +
            x = 2.586255,
            y = 39.66033,
            label = "Start",
-           color = "Blue") +
+           color = "blue") +
   transition_reveal(time)
 
 mallorca
@@ -222,6 +222,9 @@ animate(mallorca, nframes = 100, duration = 10)
 anim_save("mallorca.gif")
 ```
   
+   I prefer this map because it lets you know more about the bike journey and overall its a better visual.
+ 
+ 
   5. In this exercise, you get to meet my sister, Heather! She is a proud Mac grad, currently works as a Data Scientist at 3M where she uses R everyday, and for a few years (while still holding a full-time job) she was a pro triathlete. You are going to map one of her races. The data from each discipline of the Ironman 70.3 Pan Am championships, Panama is in a separate file - `panama_swim`, `panama_bike`, and `panama_run`. Create a similar map to the one you created with my cycling data. You will need to make some small changes: 1. combine the files (HINT: `bind_rows()`, 2. make the leading dot a different color depending on the event (for an extra challenge, make it a different image using `geom_image()!), 3. CHALLENGE (optional): color by speed, which you will need to compute on your own from the data. You can read Heather's race report [here](https://heatherlendway.com/2016/02/10/ironman-70-3-pan-american-championships-panama-race-report/). She is also in the Macalester Athletics [Hall of Fame](https://athletics.macalester.edu/honors/hall-of-fame/heather-lendway/184) and still has records at the pool. 
   
 ```{r, eval=FALSE}
@@ -288,6 +291,9 @@ covid
 animate(covid, nframes=200, duration = 30)
 anim_save("covid.gif")
 ```
+
+It seems that initially New York had significantly more cases but as time went on the other states caught up. In the last few months California, Florida, and Texas have has the most by a slight margin.
+
 
   7. In this exercise you will animate a map of the US, showing how cumulative COVID-19 cases per 10,000 residents has changed over time. This is similar to exercises 11 & 12 from the previous exercises, with the added animation! So, in the end, you should have something like the static map you made there, but animated over all the days. The code below gives the population estimates for each state and loads the `states_map` data. Here is a list of details you should include in the plot:
   
